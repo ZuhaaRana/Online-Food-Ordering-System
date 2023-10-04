@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_amount: MyString
+  payment_date: 2023-10-04
+  credit_card_no: MyString
+  card_expiry_date: MyString
+  card_holders_name: MyString
+  CVV_no: 1
+
+two:
+  payment_amount: MyString
+  payment_date: 2023-10-04
+  credit_card_no: MyString
+  card_expiry_date: MyString
+  card_holders_name: MyString
+  CVV_no: 1
