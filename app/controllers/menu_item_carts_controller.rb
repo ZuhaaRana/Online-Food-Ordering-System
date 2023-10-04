@@ -1,0 +1,2 @@
+class MenuItemCartsController < ApplicationController
+end
