@@ -7,8 +7,8 @@ one:
   password_digest: MyString
   phone_no: MyString
   address: MyString
-  user_type: MyString
-  user_type_id: 1
+  user: one
+  user_type: User
 
 two:
   first_name: MyString
@@ -17,5 +17,5 @@ two:
   password_digest: MyString
   phone_no: MyString
   address: MyString
-  user_type: MyString
-  user_type_id: 1
+  user: two
+  user_type: User

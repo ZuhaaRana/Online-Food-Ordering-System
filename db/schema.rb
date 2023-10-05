@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_04_121340) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_073610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_121340) do
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "app_users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone_no"
+    t.string "address"
+    t.string "user_type", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_type", "user_id"], name: "index_app_users_on_user"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -146,19 +160,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_121340) do
   create_table "restaurants", force: :cascade do |t|
     t.string "restaurant_name"
     t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.string "phone_no"
-    t.string "address"
-    t.string "user_type"
-    t.integer "user_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
