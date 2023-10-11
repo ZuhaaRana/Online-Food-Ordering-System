@@ -2,10 +2,14 @@
 
 one:
   discount_percent: MyString
-  start_date: 2023-10-04
-  end_date: 2023-10-04
+  start_date: 2023-10-11
+  end_date: 2023-10-11
+  discountable: one
+  discountable_type: Discountable
 
 two:
   discount_percent: MyString
-  start_date: 2023-10-04
-  end_date: 2023-10-04
+  start_date: 2023-10-11
+  end_date: 2023-10-11
+  discountable: two
+  discountable_type: Discountable

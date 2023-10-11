@@ -4,6 +4,7 @@ class CreateDiscounts < ActiveRecord::Migration[7.0]
       t.string :discount_percent
       t.date :start_date
       t.date :end_date
+      t.references :discountable, polymorphic: true, null: false
 
       t.timestamps
     end

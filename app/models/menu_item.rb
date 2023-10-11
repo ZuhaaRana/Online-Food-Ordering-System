@@ -7,4 +7,5 @@ class MenuItem < ApplicationRecord
     has_many :addons, through: :menu_item_addons
     has_many :menu_item_carts
     has_many :carts, through: :menu_item_carts
+    has_one :discount, as: :discountable
 end

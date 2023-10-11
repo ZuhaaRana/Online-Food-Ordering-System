@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_073610) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,8 +78,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_073610) do
     t.string "discount_percent"
     t.date "start_date"
     t.date "end_date"
+    t.string "discountable_type", null: false
+    t.bigint "discountable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discountable_type", "discountable_id"], name: "index_discounts_on_discountable"
   end
 
   create_table "managers", force: :cascade do |t|

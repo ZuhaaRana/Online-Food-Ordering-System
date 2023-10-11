@@ -3,4 +3,5 @@ class Order < ApplicationRecord
     has_one :payment
     has_many :order_order_details
     has_many :order_details, through: :order_order_details
+    has_one :discount, as: :discountable
 end
