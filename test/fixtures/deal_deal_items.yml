@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  deal: one
-  deal_item: one
-
-two:
-  deal: two
-  deal_item: two
