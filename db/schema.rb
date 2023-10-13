@@ -25,7 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "userId"
     t.bigint "app_user_id"
     t.index ["app_user_id"], name: "index_admins_on_app_user_id"
   end
@@ -48,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.integer "total_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customerId"
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_carts_on_customer_id"
   end
@@ -56,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "userId"
     t.bigint "app_user_id"
     t.index ["app_user_id"], name: "index_customers_on_app_user_id"
   end
@@ -74,8 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "dealId"
-    t.integer "itemId"
     t.bigint "menu_item_id"
     t.index ["menu_item_id"], name: "index_deal_items_on_menu_item_id"
   end
@@ -101,8 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
   create_table "managers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "userId"
-    t.integer "restaurantId"
     t.bigint "app_user_id"
     t.bigint "restaurant_id"
     t.index ["app_user_id"], name: "index_managers_on_app_user_id"
@@ -139,7 +132,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.string "unit_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "menuId"
     t.bigint "menu_category_id"
     t.index ["menu_category_id"], name: "index_menu_items_on_menu_category_id"
   end
@@ -148,8 +140,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.string "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "orderId"
-    t.integer "itemId"
     t.bigint "menu_item_id"
     t.index ["menu_item_id"], name: "index_order_details_on_menu_item_id"
   end
@@ -167,7 +157,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.date "order_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customerId"
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
@@ -187,7 +176,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
     t.integer "CVV_no"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "paymentMethodId"
     t.bigint "payment_method_id"
     t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
   end
