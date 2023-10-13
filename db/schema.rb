@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_13_070656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,15 +25,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "userId"
+    t.bigint "app_user_id"
+    t.index ["app_user_id"], name: "index_admins_on_app_user_id"
   end
 
   create_table "app_users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.string "phone_no"
-    t.string "address"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "phone_no", null: false
+    t.string "address", null: false
     t.string "user_type", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -45,11 +48,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.integer "total_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customerId"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_carts_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "userId"
+    t.bigint "app_user_id"
+    t.index ["app_user_id"], name: "index_customers_on_app_user_id"
   end
 
   create_table "deal_deal_items", force: :cascade do |t|
@@ -65,6 +74,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dealId"
+    t.integer "itemId"
+    t.bigint "menu_item_id"
+    t.index ["menu_item_id"], name: "index_deal_items_on_menu_item_id"
   end
 
   create_table "deals", force: :cascade do |t|
@@ -88,6 +101,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
   create_table "managers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "userId"
+    t.integer "restaurantId"
+    t.bigint "app_user_id"
+    t.bigint "restaurant_id"
+    t.index ["app_user_id"], name: "index_managers_on_app_user_id"
+    t.index ["restaurant_id"], name: "index_managers_on_restaurant_id"
   end
 
   create_table "menu_categories", force: :cascade do |t|
@@ -120,12 +139,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.string "unit_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "menuId"
+    t.bigint "menu_category_id"
+    t.index ["menu_category_id"], name: "index_menu_items_on_menu_category_id"
   end
 
   create_table "order_details", force: :cascade do |t|
     t.string "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "orderId"
+    t.integer "itemId"
+    t.bigint "menu_item_id"
+    t.index ["menu_item_id"], name: "index_order_details_on_menu_item_id"
   end
 
   create_table "order_order_details", force: :cascade do |t|
@@ -141,6 +167,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.date "order_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customerId"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "payment_methods", force: :cascade do |t|
@@ -158,6 +187,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.integer "CVV_no"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paymentMethodId"
+    t.bigint "payment_method_id"
+    t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -167,12 +199,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_063152) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "admins", "app_users"
+  add_foreign_key "carts", "customers"
+  add_foreign_key "customers", "app_users"
   add_foreign_key "deal_deal_items", "deal_items"
   add_foreign_key "deal_deal_items", "deals"
+  add_foreign_key "deal_items", "menu_items"
+  add_foreign_key "managers", "app_users"
+  add_foreign_key "managers", "restaurants"
   add_foreign_key "menu_item_addons", "addons"
   add_foreign_key "menu_item_addons", "menu_items"
   add_foreign_key "menu_item_carts", "carts"
   add_foreign_key "menu_item_carts", "menu_items"
+  add_foreign_key "menu_items", "menu_categories"
+  add_foreign_key "order_details", "menu_items"
   add_foreign_key "order_order_details", "order_details"
   add_foreign_key "order_order_details", "orders"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "payments", "payment_methods"
 end
