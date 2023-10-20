@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :order_order_details
   resources :menu_item_carts
   resources :menu_item_addons
-  root 'welcome#index'
+  get 'welcome/index'
+  root 'dashboard#display'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
