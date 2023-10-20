@@ -1,0 +1,2 @@
+module MenuItemCartsHelper
+end
