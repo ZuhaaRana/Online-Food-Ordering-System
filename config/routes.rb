@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :app_users
+  
   resources :deal_deal_items
   resources :order_order_details
   resources :menu_item_carts
   resources :menu_item_addons
+
   root 'welcome#index'
   get 'dashboard/display'
   get '/search', to: 'search#search', as: 'search'

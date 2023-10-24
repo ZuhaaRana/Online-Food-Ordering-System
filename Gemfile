@@ -71,8 +71,10 @@ group :test do
   gem "webdrivers"
 end
 
-gem "devise", "~> 4.9"
+#gem "devise", "~> 4.9"
 
 gem 'sassc'
 
 gem 'font-awesome-rails'
+
+gem "devise", "~> 4.9"
