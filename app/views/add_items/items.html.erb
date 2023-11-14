@@ -1,0 +1,37 @@
+<h1>Add Items</h1>
+
+<div class="row">
+  <div class="col">
+  <label for="formFile" class="form-label">Item Name</label>
+    <input type="text" class="form-control" placeholder="Item name" aria-label="Item Name">
+  </div>
+  <div class="col">
+  <label for="formFile" class="form-label">Restaurant</label>
+    <input type="text" class="form-control" placeholder="Restaurant" aria-label="Restaurant">
+  </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <label for="formFile" class="form-label">Add Image</label>
+        <input class="form-control" type="file" id="formFile">
+    </div>
+    <div class="col">
+        <label for="formFile" class="form-label">Price</label>
+        <input type="text" class="form-control" placeholder="Price" aria-label="Last name">
+    </div>
+</div>
+
+    <div class="col">
+        <label for="formFile" class="form-label">Category</label>
+        <div class="input-group mb-3">
+            <select class="form-select" id="inputGroupSelect02">
+                <option selected>Choose...</option>
+                <option value="1">Shake</option>
+                <option value="2">Pizza</option>
+                <option value="3">Burger</option>
+            </select>
+        </div>
+    </div>
+
+<%= link_to 'Add', add_items_items_path, class: 'btn btn-white shadow-warning text-warning' %>
