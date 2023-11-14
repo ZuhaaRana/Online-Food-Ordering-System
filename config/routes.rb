@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'place_order/order'
   get 'add_items/items'
   devise_for :app_users, controllers: 
   {

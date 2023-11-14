@@ -63,8 +63,8 @@
               </div>
                 <%= link_to 'Login', new_app_user_session_path, class: 'btn btn-white shadow-warning text-warning' %>
                 <%= link_to 'Sign Up', new_app_user_registration_path, class: 'btn btn-white shadow-warning text-warning' %>
-                <%= link_to 'Sign Out', destroy_app_user_session_path, method: :delete %>
                 <%= link_to 'Add Items', add_items_items_path, class: 'btn btn-white shadow-warning text-warning' %>
+                <%= link_to 'Order Now', place_order_order_path, class: 'btn btn-white shadow-warning text-warning' %>
                 </form>
           </div>
         </div>
@@ -303,7 +303,9 @@
                           </div>
                         </div>
                         <div class="d-grid gap-2">
-                        <a class="btn btn-lg btn-danger" href="#!" role="button">Order now</a></div>
+                        
+                        <a class="btn btn-lg btn-danger" href="" role="button">Order now</a>
+                        </div>
                       </div>
                       <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
                         <div class="card card-span h-100 rounded-3">
@@ -363,7 +365,9 @@
                             <div><span class="text-warning me-2"><i class="fas fa-map-marker-alt"></i></span><span class="text-primary">Burger Arena</span></div><span class="text-1000 fw-bold">$3.88</span>
                           </div>
                         </div>
-                        <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Order now</a></div>
+                        <div class="d-grid gap-2">
+                          <a class="btn btn-lg btn-danger" href="<%= place_order_order_path %>" role="button">Order now</a>
+                        </div>
                       </div>
                       <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
                         <div class="card card-span h-100 rounded-3">
