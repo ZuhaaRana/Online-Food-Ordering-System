@@ -61,7 +61,7 @@
               <%= content_tag(:i, nil, class: 'fas fa-search input-box-icon text-primary') %>
                 <%= text_field_tag 'search', nil, class: 'form-control border-0 input-box bg-100', placeholder: 'Search Food', aria: { label: 'Search' } %>
               </div>
-                <%= link_to 'Login', class: 'btn btn-white shadow-warning text-warning' %>
+                <%= link_to 'Login', app_user_session_path, class: 'btn btn-white shadow-warning text-warning' %>
                 <%= link_to 'Sign Up', class: 'btn btn-white shadow-warning text-warning' %>
                 <%= link_to 'Add Items', add_items_items_path, class: 'btn btn-white shadow-warning text-warning' %>
                 <%= link_to 'Order Now', place_order_order_path, class: 'btn btn-white shadow-warning text-warning' %>
