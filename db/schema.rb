@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_122659) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_120212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,22 +23,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_122659) do
   end
 
   create_table "admins", force: :cascade do |t|
+    t.string "user_type"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "app_user_id"
     t.index ["app_user_id"], name: "index_admins_on_app_user_id"
+    t.index ["user_type", "user_id"], name: "index_admins_on_user"
   end
 
   create_table "app_users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "email", null: false
     t.string "phone_no", null: false
     t.string "address", null: false
     t.string "user_type", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -77,8 +77,6 @@ gem 'sassc'
 
 gem 'font-awesome-rails'
 
-gem "devise", "~> 4.9"
-
-gem 'devise-bootstrap-views', '~> 1.0'
-
 gem 'pry'
+
+gem "devise", "~> 4.9"

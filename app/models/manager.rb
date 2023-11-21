@@ -3,4 +3,5 @@ class Manager < ApplicationRecord
     has_many :menu_items
     has_many :deals
     has_one :app_user, as: :user
+    
 end

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :app_users
+
+  devise_scope :app_user do
+    get "/app_users/sign_out" => "devise/sessions#destroy"
+  end
+  
   get 'place_order/order'
   get 'add_items/items'
-  devise_for :app_users, controllers: 
-  {
-    sessions: 'app_users/sessions',
-    registrations: 'app_users/registrations'
-    # Other Devise controllers as needed
-  }
-  
+
   resources :deal_deal_items
   resources :order_order_details
   resources :menu_item_carts

@@ -5,9 +5,9 @@ class AppUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :user, polymorphic: true
- 
+  # has_one :customer, dependent: :destroy, inverse_of: :app_user
+  # accepts_nested_attributes_for :customer
 
-  accepts_nested_attributes_for :user 
   # has_one :admin, as: :user
   # has_one :manager, as: :user
   # has_one :customer, as: :user
